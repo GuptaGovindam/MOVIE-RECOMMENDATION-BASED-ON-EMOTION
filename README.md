@@ -15,7 +15,7 @@ The Movie Recommendation Based on Emotion project aims to develop a personalized
 - HTML and CSS: Design an intuitive and visually appealing webpage to display movie recommendations and other relevant information.
 
 ## Installation
-1. Clone the repository: `git clone https://github.com/M-yadav007/Move-Recommendation-based-on-emotion.git`
+1. Clone the repository: `git clone https://github.com/GuptaGovindam/MOVIE-RECOMMENDATION-BASED-ON-EMOTION.git`
 2. Install the required dependencies: `pip install -r requirements.txt`
 
 ## Usage
@@ -35,7 +35,7 @@ During the development of this project, we encountered several challenges, inclu
 - Mobile application development: Extend the project to develop a mobile application for users to access movie recommendations on their smartphones.
 
 ## License
-This project is licensed under the [MIT License](https://github.com/M-yadav007/Movie-Recommendation-based-on-emotion/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/GuptaGovindam/MOVIE-RECOMMENDATION-BASED-ON-EMOTION.git/blob/main/LICENSE).
 
 
 
@@ -43,4 +43,4 @@ This project is licensed under the [MIT License](https://github.com/M-yadav007/M
 We would like to express our gratitude to our project supervisor for their guidance and support throughout the development process. We also extend our thanks to the developers of the various technologies and frameworks used in this project, as well as the online communities and open-source contributors for their valuable resources and assistance. Lastly, we acknowledge the dataset providers and researchers in the field of emotion recognition for their valuable contributions.
 
 ## Contact
-For any inquiries or feedback, please contact us at [mayank.yad2004@gmail.com].
+For any inquiries or feedback, please contact us at [govindamgupta2707@gmail.com].
