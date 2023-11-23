@@ -35,7 +35,7 @@ During the development of this project, we encountered several challenges, inclu
 - Mobile application development: Extend the project to develop a mobile application for users to access movie recommendations on their smartphones.
 
 ## License
-This project is licensed under the [MIT License](https://github.com/GuptaGovindam/MOVIE-RECOMMENDATION-BASED-ON-EMOTION.git/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/GuptaGovindam/MOVIE-RECOMMENDATION-BASED-ON-EMOTION/blob/main/LICENSE).
 
 
 
