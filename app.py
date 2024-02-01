@@ -4,7 +4,6 @@ from deepface import DeepFace
 import time
 import requests
 from bs4 import BeautifulSoup
-import regex as re
 
 app = Flask(__name__)
 
@@ -39,7 +38,7 @@ def analyze_emotion():
             
             result = DeepFace.analyze(img_path=img_path, actions=['emotion'], enforce_detection=False)
 
-            dominant_emotion =(result[0]["dominant_emotion"][:])
+            dominant_emotion = result[0]["dominant_emotion"][:]
             emotions.append(dominant_emotion)
 
             txt = "Emotion: " + dominant_emotion
@@ -78,26 +77,22 @@ def fetch_movies_from_imdb(emotion):
     genre = genre_mapping.get(emotion)
 
     if genre:
-        url = f'http://www.imdb.com/search/title?genres={genre}&title_type=feature&sort=moviemeter, asc'
+        url = f'https://www.rottentomatoes.com/browse/movies_in_theaters/genres:{genre}'
+        print(f"Fetching movies for emotion: {emotion}, genre: {genre}, URL: {url}")
         response = requests.get(url)
+        print(f"HTTP Response Code: {response.status_code}")
         soup = BeautifulSoup(response.text, 'html.parser')
-        movie_titles = soup.find_all('h3', class_='lister-item-header')
-        movie_ratings = soup.find_all('div', class_='inline-block ratings-imdb-rating')
-        movie_image = soup.find_all("img", {"class": "loadlate"})
+        movies = soup.find_all('div', class_='article_movie_title')
 
         movie_data = []
-        # for title, rating,image, in zip(movie_titles, movie_ratings,movie_image):
-        #     movie_data.append({'title': title.text.strip(), 'rating': rating.text.strip(),'image':image.text.strip()})
 
-        
-    for i in range(0, 10):
-        title = movie_titles[i].text
-        rating = movie_ratings[i].text
-        images = movie_image[i]['loadlate']
-        names=movie_image[i]['loadlate']
-        movie_data.append({'title': title, 'rating': rating, 'image_url': images})
-    return movie_data
-        # return movie_data
+        for i, movie in enumerate(movies[:10]):
+            title = movie.a.text.strip()
+            rating = movie.find_next('span', class_='tMeterScore').text.strip() if movie.find_next('span', class_='tMeterScore') else 'N/A'
+            image_url = movie.find_next('img')['src'] if movie.find('img') else 'No Image'
+            movie_data.append({'title': title, 'rating': rating, 'image_url': image_url})
+
+        return movie_data
 
     return []
 
